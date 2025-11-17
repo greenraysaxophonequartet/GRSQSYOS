@@ -1,0 +1,157 @@
+@prefix ex:     <https://greenray.jp/ns#> .
+@prefix schema: <http://schema.org/> .
+@prefix prov:   <http://www.w3.org/ns/prov#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+
+### クラス定義
+
+ex:Project         a rdfs:Class .
+ex:Goal            a rdfs:Class .
+ex:Assumption      a rdfs:Class .
+ex:EvaluationMethod a rdfs:Class .
+
+### プロパティ定義
+
+ex:hasGoal            a rdf:Property .
+ex:hasAssumption      a rdf:Property .
+ex:hasEvaluationMethod a rdf:Property .
+
+### プロジェクト本体：SYOSマウスピース試奏・リサーチ企画
+
+ex:Project_SYOS_Mouthpiece_Research
+    a ex:Project ;
+    schema:name "SYOSマウスピース試奏・リサーチ企画" ;
+    schema:description """
+Green Rayの4パート（S/A/T/B）が合奏したときにベストの音が出る条件を逆算し、
+SYOSマウスピース（Smoky / Steady / Spark、開き5・6）が
+サウンドにどう作用するかを整理するためのリサーチ・試奏企画。
+""" ;
+    ex:hasGoal ex:Goal_SYOS_Sound_Optimization ;
+    prov:generatedAtTime "2025-11-17T00:00:00+09:00"^^xsd:dateTime .
+
+### ゴール：SYOSを使った合奏サウンドの最適化
+
+ex:Goal_SYOS_Sound_Optimization
+    a ex:Goal ;
+    schema:name "SYOSマウスピースを使った合奏サウンドの最適化" ;
+    schema:description """
+Green Rayの4パートが合奏したときに、
+各パートらしさ（輪郭・色気・温かさ・支柱感など）を保ちながら、
+全体としての混ざりやすさ・音色バランスを最適化する条件を特定し、
+その中でSYOSマウスピース（Smoky / Steady / Spark、開き5・6）の役割と傾向を理解する。
+本企画では、個人の吹き心地よりもアンサンブル全体のクオリティを主眼とする。
+""" ;
+    ex:hasAssumption
+        ex:Assumption_SYOS_OverviewFirst ,
+        ex:Assumption_SYOS_Priority_OfficialDocs ,
+        ex:Assumption_SYOS_EnsemblePriority ,
+        ex:Assumption_SYOS_Soprano_Character ,
+        ex:Assumption_SYOS_Alto_Character ,
+        ex:Assumption_SYOS_Tenor_Character ,
+        ex:Assumption_SYOS_Baritone_Character ,
+        ex:Assumption_UsabilityForWindBand
+    ;
+    ex:hasEvaluationMethod ex:Evaluation_SYOS_EnsembleAndAudience
+    .
+
+### リサーチ全体の進め方に関する前提
+
+ex:Assumption_SYOS_OverviewFirst
+    a ex:Assumption ;
+    schema:description """
+SYOSモデルごとの音色傾向など、まず全体像を俯瞰してから
+各モデル・各パートの細部に降りていく。
+""" .
+
+ex:Assumption_SYOS_Priority_OfficialDocs
+    a ex:Assumption ;
+    schema:description """
+SYOS公式が公開している設計理念や音響設計（倍音操作など）に関する
+技術資料・論文を、一般的なレビュー記事よりも優先して参照する。
+""" .
+
+ex:Assumption_SYOS_EnsemblePriority
+    a ex:Assumption ;
+    schema:description """
+本企画では、個々人の「吹きやすさ」「好み」よりも、
+4人で合奏したときのブレンド・安定感・音楽的なまとまりを重視する。
+ソロ用途の評価は本件の主目的としない。
+""" .
+
+### パートごとの「理想キャラ」に関する前提
+
+ex:Assumption_SYOS_Soprano_Character
+    a ex:Assumption ;
+    schema:description """
+ソプラノパートでは、
+・輪郭がはっきりしていて
+・透明度が高く
+・前にスッと飛ぶ直進性がある
+ことを重視する。
+ただし、他パートを刺すようなキツさは避け、合奏の中で線が見えるが
+耳ざわりにならないバランスを目標とする。
+""" .
+
+ex:Assumption_SYOS_Alto_Character
+    a ex:Assumption ;
+    schema:description """
+アルトパートでは、
+・中域の密度の高さ
+・ほんのりした色気のある響き
+を重視する。
+ソプラノの輪郭とテナーの厚みの間をつなぐ「中域の柱」として、
+メロディでもハーモニーでも存在感が出るが、主張しすぎて浮かない
+キャラクターを目標とする。
+""" .
+
+ex:Assumption_SYOS_Tenor_Character
+    a ex:Assumption ;
+    schema:description """
+テナーパートでは、
+・温かさ
+・厚み
+を重視し、アンサンブル全体の中低域を支える役割を想定する。
+単体では少し丸めの音でもよく、4本で吹いたときにサウンド全体を
+包み込むような中低域の「クッション」になるキャラクターを目標とする。
+""" .
+
+ex:Assumption_SYOS_Baritone_Character
+    a ex:Assumption ;
+    schema:description """
+バリトンパートでは、
+・支柱感
+・低域の安定
+を最優先とする。
+音程感とタイミングの安定を重視し、倍音構成よりもまず「土台として揺れないこと」を
+目標とする。
+そのうえで、上の3パートと混ざったときに輪郭が消えすぎない程度の存在感を持たせる。
+""" .
+
+### 吹奏楽での使いやすさに関する前提
+
+ex:Assumption_UsabilityForWindBand
+    a ex:Assumption ;
+    schema:description """
+本企画では、サックス四重奏に加えて吹奏楽での実用性も評価軸とする。
+・音程の安定
+・中低域の支柱としての役割
+・セクション全体とのブレンドのしやすさ
+・難しすぎず現実的に運用可能か
+といった観点から、「吹奏楽でアリかどうか」を判断する。
+ジャズやビッグバンド用途は本企画の範囲外とする。
+""" .
+
+### 評価方法：4人＋視聴者の二層構造
+
+ex:Evaluation_SYOS_EnsembleAndAudience
+    a ex:EvaluationMethod ;
+    schema:name "合奏重視＋視聴者参加型の評価" ;
+    schema:description """
+評価は、まず4人の合奏メンバーによる「アンサンブルとしてアリかどうか」を
+多数決などで判断し、そのうえで視聴者からの反応・コメントも参考にする
+二層構造とする。
+自己満足的な評価ではなく、他人の耳・合奏全体のクオリティ・
+吹奏楽での実用性を重視する。
+""" .

@@ -1,0 +1,137 @@
+@prefix ex:     <https://greenray.jp/ns#> .
+@prefix schema: <http://schema.org/> .
+@prefix prov:   <http://www.w3.org/ns/prov#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+
+### クラス定義
+
+ex:SYOSModel a rdfs:Class .
+ex:Assumption a rdfs:Class .
+
+### プロパティ定義（他ファイルと重複していてもOK）
+
+ex:hasResearchTarget a rdf:Property .
+ex:hasAssumption     a rdf:Property .
+
+### ゴールから参照する検証対象モデル・前提
+
+ex:Goal_SYOS_Sound_Optimization
+    ex:hasResearchTarget
+        ex:SYOS_Smoky_5 ,
+        ex:SYOS_Smoky_6 ,
+        ex:SYOS_Steady_5 ,
+        ex:SYOS_Steady_6 ,
+        ex:SYOS_Spark_5 ,
+        ex:SYOS_Spark_6 ;
+    ex:hasAssumption
+        ex:Assumption_SYOS_Opening_5 ,
+        ex:Assumption_SYOS_Opening_6
+    .
+
+#### Smoky
+
+ex:SYOS_Smoky_5
+    a ex:SYOSModel ;
+    schema:name "SYOS Smoky 開き5" ;
+    schema:description """
+このプロジェクトにおいては、やや暗め・丸めの傾向をもつモデルとして扱う。
+開き5は息の量がそこまで多くなくてもコントロールしやすく、
+・安定したピッチ
+・まとまりのある倍音
+を想定し、合奏の中で「落ち着いたキャラクター」の基準値として検証対象とする。
+""" .
+
+ex:SYOS_Smoky_6
+    a ex:SYOSModel ;
+    schema:name "SYOS Smoky 開き6" ;
+    schema:description """
+Smokyのキャラクターを保ったまま、開き5よりもやや息量を必要とし、
+そのぶん音量・表現幅が広がるモデルとして扱う。
+開き5と比べて、
+・フォルテ時の鳴り方
+・音程の安定度
+・疲労感
+の違いを、特に合奏時のバランスという観点から検証対象とする。
+""" .
+
+#### Steady
+
+ex:SYOS_Steady_5
+    a ex:SYOSModel ;
+    schema:name "SYOS Steady 開き5" ;
+    schema:description """
+このプロジェクトにおいては、「素直でまっすぐな響き」を志向するモデルとして扱う。
+開き5は、
+・音程のとりやすさ
+・ブレの少なさ
+を重視した基準として位置づけ、パート間のブレンドのしやすさを検証するための
+「標準的なセッティング候補」として扱う。
+""" .
+
+ex:SYOS_Steady_6
+    a ex:SYOSModel ;
+    schema:name "SYOS Steady 開き6" ;
+    schema:description """
+Steadyの素直さを保ちつつ、開きが広い分だけ
+・ダイナミクス
+・音の太さ
+がどの程度増えるかを検証するモデルとして扱う。
+特に、テナーやバリトンで使用した際の「支え感」と、
+ソプラノ・アルトとの混ざりやすさの変化を観察対象とする。
+""" .
+
+#### Spark
+
+ex:SYOS_Spark_5
+    a ex:SYOSModel ;
+    schema:name "SYOS Spark 開き5" ;
+    schema:description """
+このプロジェクトにおいては、「輪郭と抜け感」が強めのモデルとして扱う。
+開き5は扱いやすさとキレのバランスをとるセッティングとして位置づけ、
+特にソプラノやアルトで使用した際の
+・アタックの速さ
+・高域の抜け
+・他パートとの馴染み方
+を検証対象とする。
+""" .
+
+ex:SYOS_Spark_6
+    a ex:SYOSModel ;
+    schema:name "SYOS Spark 開き6" ;
+    schema:description """
+Sparkらしい輪郭の強さに加え、開きが広いことで
+・フォルテ時の存在感
+・ブリリアンス
+がどの程度増すかを検証するモデルとして扱う。
+他パートを押し出しすぎないラインはどこか、という点を
+特にソプラノ／アルトのメロディ運用で観察対象とする。
+""" .
+
+### 開き5・6そのものに関する前提
+
+ex:Assumption_SYOS_Opening_5
+    a ex:Assumption ;
+    schema:description """
+開き5は、このプロジェクトにおいて
+・比較的コントロールしやすく
+・息の要求量も中庸
+・音程やレスポンスが安定しやすい
+セッティングとして扱う。
+「基準」としての吹きやすさ・揃えやすさを評価する軸とする。
+""" .
+
+ex:Assumption_SYOS_Opening_6
+    a ex:Assumption ;
+    schema:description """
+開き6は、開き5と比べて
+・息の要求量が増え
+・音量や表現幅が広がる可能性がある
+セッティングとして扱う。
+その一方で、
+・音程の安定
+・長時間演奏時の疲労
+・合奏でのバランス
+への影響も合わせて検証する前提とする。
+""" .
