@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>サイオス マウスピース試奏レビュー動画</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0c0c1f;
+      --card: rgba(255, 255, 255, 0.08);
+      --card-strong: rgba(255, 255, 255, 0.14);
+      --text: #f9fbff;
+      --muted: #dbe0ff;
+      --accent: #ff6ad5;
+      --accent-2: #7df9ff;
+      --accent-3: #ffdd59;
+      --shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Noto Sans JP', 'Poppins', system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at 20% 20%, rgba(255, 106, 213, 0.16), transparent 35%),
+                  radial-gradient(circle at 80% 10%, rgba(125, 249, 255, 0.18), transparent 32%),
+                  radial-gradient(circle at 50% 90%, rgba(255, 221, 89, 0.18), transparent 38%),
+                  var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 0 18px 70px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(14px);
+      background: rgba(12, 12, 31, 0.8);
+      box-shadow: var(--shadow);
+      margin: 0 -18px 18px;
+      padding: 12px 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    nav {
+      margin-top: 10px;
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      scrollbar-width: thin;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: linear-gradient(120deg, rgba(255, 106, 213, 0.3), rgba(125, 249, 255, 0.25));
+      font-size: 0.9rem;
+      white-space: nowrap;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    nav a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      align-items: center;
+      background: linear-gradient(140deg, rgba(255, 106, 213, 0.2), rgba(125, 249, 255, 0.1));
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .hero-text h1 {
+      margin: 4px 0 6px;
+      font-size: 1.8rem;
+      line-height: 1.2;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-text p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 221, 89, 0.2);
+      color: #ffef99;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+
+    .bubble {
+      position: relative;
+      background: linear-gradient(135deg, var(--card), var(--card-strong));
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      overflow: hidden;
+      margin-top: 12px;
+    }
+
+    .bubble::after {
+      content: '';
+      position: absolute;
+      right: -20px;
+      top: 20px;
+      width: 80px;
+      height: 80px;
+      background: radial-gradient(circle, rgba(125, 249, 255, 0.18), transparent 60%);
+      transform: rotate(12deg);
+    }
+
+    h2.section-title {
+      margin: 28px 0 12px;
+      font-size: 1.3rem;
+      letter-spacing: 0.4px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .card {
+      background: linear-gradient(120deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+      border-radius: var(--radius);
+      padding: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 20% 20%, rgba(255, 106, 213, 0.14), transparent 35%);
+      pointer-events: none;
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+    }
+
+    .card p, .card li {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 0.97rem;
+    }
+
+    ul { padding-left: 18px; margin: 6px 0 0; }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .tag {
+      background: rgba(125, 249, 255, 0.18);
+      color: #e8fbff;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+
+    .chapter {
+      border-left: 4px solid var(--accent);
+      padding-left: 12px;
+    }
+
+    .chapter .title-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+      font-size: 1.05rem;
+    }
+
+    .chapter strong { color: var(--text); }
+
+    .note {
+      border: 1px dashed rgba(255, 255, 255, 0.4);
+      padding: 10px 12px;
+      border-radius: 12px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.05);
+      margin-top: 10px;
+      font-size: 0.95rem;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      letter-spacing: 0.3px;
+    }
+
+    @media (max-width: 720px) {
+      body { padding: 0 16px 70px; }
+      .hero { grid-template-columns: 1fr; padding: 16px; }
+      .hero-text h1 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">🎷 Syos Review Plan</div>
+    <nav aria-label="ページ内ナビゲーション">
+      <a href="#intro">企画概要</a>
+      <a href="#purpose">目的</a>
+      <a href="#target">ターゲット&トーン</a>
+      <a href="#roles">役割</a>
+      <a href="#chapters">チャプター</a>
+      <a href="#notes">運用メモ</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="intro">
+    <div class="hero-text">
+      <div class="hero-pill">企画</div>
+      <h1>サイオス マウスピース試奏レビュー動画</h1>
+      <p>ぐりんれいと堀越さんが、感覚と理論のダブル視点でシェアするマウスピースレビュー。スマホで読みやすい番組風のワンページまとめです。</p>
+    </div>
+    <div class="bubble">
+      <h3>企画のキモ</h3>
+      <ul>
+        <li>ぐりんれいが先に“ガチ試奏 & 正直コメント”。</li>
+        <li>堀越さんが後から設計意図を深掘り解説。</li>
+        <li>疑問を作ってから解説で回収する番組構成。</li>
+      </ul>
+      <div class="tag-row">
+        <span class="tag">🎯 セルフ発見</span>
+        <span class="tag">🧠 設計視点</span>
+        <span class="tag">🎶 実演多め</span>
+      </div>
+    </div>
+  </section>
+
+  <h2 class="section-title" id="purpose">2. 目的</h2>
+  <div class="card-grid">
+    <div class="card">
+      <h3>伝えたいこと</h3>
+      <ul>
+        <li>各モデルのキャラクターを感覚（吹奏感・音色）と理論（設計意図）の両面で伝える。</li>
+        <li>視聴者が「自分ならどれが合いそうか」イメージできるようにする。</li>
+        <li>ぐりんれいの演奏＆トークと、堀越さんの専門性を掛け合わせた共同レビュー番組に仕立てる。</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="section-title" id="target">3. ターゲット・トーン</h2>
+  <div class="card-grid">
+    <div class="card">
+      <h3>ターゲット</h3>
+      <ul>
+        <li>サックス吹き</li>
+        <li>楽器好きの一般リスナー</li>
+        <li>検索でたどり着く新規視聴者</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>トーン & 雰囲気</h3>
+      <ul>
+        <li>明るくフラットで、ちょっと番組感のある雰囲気。</li>
+        <li>プロ同士が真面目に楽しみながら話している空気。</li>
+        <li>台本読みではなく、コーナー構成だけ決めて会話ベース。</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="section-title" id="roles">4. 役割イメージ</h2>
+  <div class="card-grid">
+    <div class="card">
+      <h3>ぐりんれい：キャスト＆レビュー担当</h3>
+      <ul>
+        <li>司会進行：企画説明・チャプターのつなぎ。</li>
+        <li>試奏担当：各パートで吹いて第一印象をコメント。</li>
+        <li>リアクション担当：ツッコミ・補足で場を動かす。</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>堀越さん：専門家・解説＆総評担当</h3>
+      <ul>
+        <li>マウスピースの狙い・設計意図の説明。</li>
+        <li>「どんなプレイヤー・どんな現場に向いているか」の整理。</li>
+        <li>ぐりんれいの感想に対する「答え合わせ」コメント。</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="section-title" id="chapters">5. チャプター構成（5章立て）</h2>
+  <div class="card-grid">
+    <div class="card chapter">
+      <div class="title-row"><span>🎬</span><strong>CH1：オープニング＆紹介（1〜2分）</strong></div>
+      <p><strong>目的：</strong>企画と登場人物をサクッと紹介。</p>
+      <ul>
+        <li>企画説明：複数のマウスピースをガチ試奏＆レビュー。</li>
+        <li>ぐりんれい・堀越さんの自己紹介＆立ち位置。</li>
+        <li>今日のルールを宣言：「先に正直コメント→後で答え合わせ」。</li>
+      </ul>
+    </div>
+    <div class="card chapter">
+      <div class="title-row"><span>🤔</span><strong>CH2：試奏＆第一印象（疑問づくり）</strong></div>
+      <p><strong>目的：</strong>視聴者と一緒に「なんで？」を作る。</p>
+      <ul>
+        <li>同じフレーズで試奏し、吹奏感・音色を率直にコメント。</li>
+        <li>ポジ・ネガどちらもOK。あえて謎を残す一言を入れる。</li>
+        <li>このチャプターは堀越さんは見守り役に徹する。</li>
+      </ul>
+    </div>
+    <div class="card chapter">
+      <div class="title-row"><span>🧭</span><strong>CH3：堀越さんの解説＆回答</strong></div>
+      <p><strong>目的：</strong>感覚コメントに設計意図で答えを出す。</p>
+      <ul>
+        <li>ぐりんれいが質問役で感想を拾い、設計の狙いを聞く。</li>
+        <li>チェンバー・ティップ・バッフルなど話せる範囲で解説。</li>
+        <li>「どんなプレイヤーを想定？」を具体例で返す。</li>
+      </ul>
+      <div class="note">例：「低音の太さ」→チェンバー設計で納得、といった“気づきリアクション”を大事に。</div>
+    </div>
+    <div class="card chapter">
+      <div class="title-row"><span>🎵</span><strong>CH4：演奏コーナー（聴き比べ）</strong></div>
+      <p><strong>目的：</strong>理屈だけでなく音で違いを実感。</p>
+      <ul>
+        <li>同じ曲やモチーフをマウスピース違いで演奏、ショート動画にも切り出しやすく。</li>
+        <li>モデルごとに得意そうなフレーズを変えるのも可。</li>
+        <li>演奏後に一言コメント：「このフレーズが最高に気持ちいい」など。</li>
+      </ul>
+    </div>
+    <div class="card chapter">
+      <div class="title-row"><span>✅</span><strong>CH5：まとめ＆「どんな人に向いてるか」</strong></div>
+      <p><strong>目的：</strong>視聴者が自分ごととしてモデルを選べるように。</p>
+      <ul>
+        <li>各自が一番しっくりきたモデルを挙げ、どんな現場で使うかを共有。</li>
+        <li>堀越さんの総評：向いているプレイヤー像・シチュエーションを整理。</li>
+        <li>クロージング：感想・質問・試奏レポを募集。</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="section-title" id="notes">6. 当日の運用メモ</h2>
+  <div class="card-grid">
+    <div class="card">
+      <ul>
+        <li>CH2では必ず「なんで？」系の一言を残す。</li>
+        <li>CH3ではその疑問をぶつけて回収していくスタイル。</li>
+        <li>時間が押したら、比較本数や演奏テイク数を絞って調整。</li>
+        <li>各チャプターの頭で「○○コーナーです」と宣言すると編集が楽。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer">スマホで読みやすいポップな番組シート｜Syos Mouthpiece Review</div>
+</body>
+</html>
