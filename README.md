@@ -13,3 +13,7 @@
 ### `ttl/syos_windband_research.ttl`
 * WindBand 向けの SYOS 研究プロジェクトを RDF/Turtle で定義したメタデータです。Smoky / Steady / Spark の各モデル（開き 5・6）について、アンサンブル前提のゴール・仮説・評価手法を整理しています。
 * 企画の裏側で専門的な前提を参照したいときは、この TTL を RDF 対応ツール（例: `riot` や `rapper`）で読み込むと各ノードの関係を確認できます。追加の研究ノードやエピソードを足す場合もこのファイルに追記してください。
+
+### `ttl/INDEX.ttl`
+* LLM からリポジトリ内のデータをたどるための入口です。`index.html`（企画シート）と `ttl/syos_windband_research.ttl`（研究TTL）の双方を `schema:hasPart` でまとめています。
+* エージェントに読み込ませる際はまずこの `INDEX.ttl` を参照し、必要に応じて記載された `schema:contentUrl` から各ファイルを取得してください。

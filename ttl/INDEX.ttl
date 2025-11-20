@@ -1,0 +1,26 @@
+@prefix ex: <http://example.org/syos#> .
+@prefix schema: <http://schema.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+# Entry point for LLM ingestion across project documents
+ex:RepositoryIndex a schema:CreativeWork ;
+  schema:name "GRSQSYOS content index" ;
+  schema:description "Entry point for SYOS mouthpiece企画シートとWindBand研究TTLをまとめて参照するためのインデックス" ;
+  schema:hasPart ex:PushiElectionSheet , ex:WindBandResearchTTL ;
+  dcterms:created "2025-01-01"^^<http://www.w3.org/2001/XMLSchema#date> .
+
+ex:PushiElectionSheet a schema:WebPage ;
+  schema:name "SYOSマウスピース推しモデル総選挙 企画シート" ;
+  schema:encodingFormat "text/html" ;
+  schema:contentUrl "./index.html" ;
+  schema:description "エンタメ9：専門1トーンで企画概要・チャプター構成・運用メモをまとめたHTML" ;
+  schema:isPartOf ex:RepositoryIndex .
+
+ex:WindBandResearchTTL a schema:Dataset ;
+  schema:name "SYOS WindBand research TTL" ;
+  schema:encodingFormat "text/turtle" ;
+  schema:contentUrl "./ttl/syos_windband_research.ttl" ;
+  schema:description "WindBand向けのSYOS研究プロジェクトのゴール・仮説・評価方法をTurtleで定義" ;
+  schema:isPartOf ex:RepositoryIndex ;
+  prov:wasDerivedFrom ex:SYOSProject .
